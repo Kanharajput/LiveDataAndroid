@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         // create the observer to update the ui
-        // this observer will automatically called when the MutableLiveData changed
+        // this observer will automatically called when the LiveDdta changed
         final Observer<String> nameObserver = new Observer<String>() {
             @Override
             public void onChanged(String changedName) {
@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel.myName.observe(this,nameObserver);
     }
 
+    // to better understand see previous commit then this
+    // now we are using LiveData so we can use setValue methods
+    // only getValue are present
     public void updateData(View view) {
         mainViewModel.updateMutableLiveData("kanha");
     }
